@@ -39,5 +39,5 @@ jobs:
           push: true
           context: .
           file: ./Containerfile
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }}, ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
           labels: ${{ steps.meta.outputs.labels }}
