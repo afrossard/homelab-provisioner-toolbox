@@ -1,1 +1,3 @@
-# Empty project with default git and editor setup
+# Homelab Provisioner Toolbox
+
+Collection of tools for provisioning homelab machines.
