@@ -1,3 +1,2 @@
 ansible==8.5.0
-ansible-lint==6.21.1
-ansible-navigator==3.5.0
+
