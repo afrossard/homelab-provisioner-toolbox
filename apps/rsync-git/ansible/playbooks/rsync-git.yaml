@@ -1,0 +1,36 @@
+---
+- name: Clone or Update Git Repo and rsync to target
+  hosts: localhost
+
+  vars:
+    git_repo_url: ""
+    git_dest: ""
+    git_path_to_sync: ""
+    dest: ""
+
+  tasks:
+    - name: git_clone
+      ansible.builtin.git:
+        repo: "{{ git_repo_url }}"
+        dest: "{{ git_dest }}"
+        update: true
+        depth: 1
+      register: git_clone_result
+      ignore_errors: true
+
+    - name: rsync
+      ansible.posix.synchronize:
+        src: "{{ git_dest }}/{{ git_path_to_sync }}"
+        dest: "{{ dest }}"
+        archive: yes
+        delete: yes
+        recursive: yes
+        compress: yes
+        partial: yes
+        copy_links: no
+        rsync_opts:
+          - "--verbose"
+          - "--exclude=.git"
+          - "--exclude=.gitkeep"
+          - "--exclude=.vscode"
+      when: git_clone_result.changed
