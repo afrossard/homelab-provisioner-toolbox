@@ -1,6 +1,10 @@
-name: Create and publish a Docker image
+name: Build prod image
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'Containerfile'
+      - 'requirements.txt'
 
 env:
   REGISTRY: ghcr.io
