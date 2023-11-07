@@ -3,8 +3,9 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'Containerfile'
-      - 'requirements.txt'
+      - "Containerfile"
+      - "requirements.txt"
+      - "apps/**"
 
 env:
   REGISTRY: ghcr.io
