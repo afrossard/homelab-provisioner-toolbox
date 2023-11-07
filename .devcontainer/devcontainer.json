@@ -12,7 +12,7 @@
   // "forwardPorts": [],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "pip3 install --user -r requirements.txt",
+  "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
 
   // Avoid dubious ownership issue when git is run from inside the dev-container
   "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
