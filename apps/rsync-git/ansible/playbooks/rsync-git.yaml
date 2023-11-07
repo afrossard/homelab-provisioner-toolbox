@@ -1,5 +1,5 @@
 ---
-- name: Clone or Update Git Repo and rsync to target
+- name: Clone git and rsync to target
   hosts: localhost
 
   vars:
