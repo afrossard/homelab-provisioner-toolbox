@@ -1,7 +1,18 @@
 FROM python:3-bookworm
 
 RUN apt-get update && \
-  apt-get install --no-install-recommends --yes rsync vim
+  apt-get install -y --no-install-recommends \
+  rsync \
+  vim \
+  util-linux \
+  parted \
+  e2fsprogs \
+  xfsprogs \
+  dosfstools \
+  btrfs-progs && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
+
 
 RUN useradd hl -u 10001 --create-home --user-group
 USER 10001
