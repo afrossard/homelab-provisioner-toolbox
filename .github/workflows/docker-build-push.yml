@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          context:.
+          context: .
           file: ${{ inputs.file }}
           tags: ${{ steps.meta.outputs.tags }}, ${{ inputs.registry }}/${{ inputs.image-name }}:${{ github.run_number }}
           labels: ${{ steps.meta.outputs.labels }}
