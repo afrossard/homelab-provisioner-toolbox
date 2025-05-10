@@ -5,12 +5,15 @@ on:
       registry:
         description: Docker registry
         required: true
+        type: string
       image-name:
         description: Image name
         required: true
+        type: string
       file:
         description: Dockerfile
         required: true
+        type: string
 
 jobs:
   build-and-push:
