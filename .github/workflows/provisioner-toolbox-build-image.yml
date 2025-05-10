@@ -9,6 +9,9 @@ on:
 
 jobs:
   provisioner-toolbox-build-and-push-image:
+    permissions:
+      contents: read
+      packages: write
     uses: ./.github/workflows/docker-build-push.yml
     with:
       registry: ghcr.io
