@@ -9,8 +9,8 @@ on:
 
 jobs:
   provisioner-toolbox-build-and-push-image:
-    uses:./.github/workflows/docker-build-push.yml
+    uses: ./.github/workflows/docker-build-push.yml
     with:
       registry: ghcr.io
       image-name: ${{ github.repository }}
-      file:./Containerfile
+      file: ./Containerfile

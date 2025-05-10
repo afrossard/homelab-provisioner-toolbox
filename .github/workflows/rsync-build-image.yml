@@ -7,8 +7,8 @@ on:
 
 jobs:
   rsync-build-and-push-image:
-    uses:./.github/workflows/docker-build-push.yml
+    uses: ./.github/workflows/docker-build-push.yml
     with:
       registry: ghcr.io
       image-name: ${{ github.repository }}-rsync
-      file:./Containerfile_rsync
+      file: ./Containerfile_rsync
