@@ -1,18 +1,16 @@
-name: Build prod image
+name: Build rsync image
 on:
   workflow_dispatch:
   push:
     paths:
-      - "Containerfile"
-      - "requirements.txt"
-      - "apps/**"
+      - "Containerfile_rsync"
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ${{ github.repository }}-rsync
 
 jobs:
-  build-and-push-image:
+  rsync-build-and-push-image:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -38,11 +36,11 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      - name: Build and push image
+      - name: rsync - Build and push image
         uses: docker/build-push-action@v6
         with:
           push: true
           context: .
-          file: ./Containerfile
+          file: ./Containerfile_rsync
           tags: ${{ steps.meta.outputs.tags }}, ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
           labels: ${{ steps.meta.outputs.labels }}
