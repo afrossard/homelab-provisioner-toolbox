@@ -1,0 +1,15 @@
+name: Cleanup old packages
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete old container versions
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: your-image-name
+          package-type: container
+          min-versions-to-keep: 5
