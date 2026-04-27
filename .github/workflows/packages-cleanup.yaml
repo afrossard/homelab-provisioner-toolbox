@@ -6,10 +6,16 @@ on:
 jobs:
   cleanup:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package:
+          - homelab-provisioner-toolbox-rsync
+          - homelab-provisioner-toolbox
+
     steps:
-      - name: Delete old container versions
+      - name: Cleanup packages
         uses: actions/delete-package-versions@v5
         with:
-          package-name: your-image-name
+          package-name: ${{ matrix.package }}
           package-type: container
           min-versions-to-keep: 5
