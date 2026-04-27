@@ -1,9 +1,6 @@
 name: Build rsync image
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "Containerfile_rsync"
 
 jobs:
   rsync-build-and-push-image:
