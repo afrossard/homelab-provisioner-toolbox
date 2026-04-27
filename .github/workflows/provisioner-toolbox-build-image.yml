@@ -1,11 +1,6 @@
 name: Build provisioner toolbox image
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "Containerfile"
-      - "requirements.txt"
-      - "apps/**"
 
 jobs:
   provisioner-toolbox-build-and-push-image:
